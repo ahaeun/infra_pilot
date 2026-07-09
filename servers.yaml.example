@@ -1,0 +1,14 @@
+# 실시간 서버 상태 조회(디스크 용량, 메모리 등)를 위한 SSH 접속 대상 목록입니다.
+# 이 파일을 servers.yaml로 복사해서 채우세요. servers.yaml은 git에 커밋되지 않습니다.
+#
+# 비밀번호나 SSH 키는 절대 여기 넣지 마세요. ssh_target은 평소 터미널에서
+# `ssh <이 값>`이라고 입력할 때 쓰는 값과 동일해야 하며, 실제 인증은
+# ~/.ssh/config 에 설정된 Host 별칭 / SSH 에이전트 / 키가 담당합니다.
+
+servers:
+  - name: "운영2"                              # 질문에서 부를 이름 (예: "운영2 용량 알려줘")
+    ssh_target: "produser@prod2.example.com"    # 또는 ~/.ssh/config의 Host 별칭
+    port: 22                                    # 선택, 기본값 22
+
+  - name: "dev-docker-host"
+    ssh_target: "dev-docker-host"               # ~/.ssh/config 별칭이면 이것만으로 충분

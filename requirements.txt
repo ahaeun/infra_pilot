@@ -1,0 +1,9 @@
+google-genai
+voyageai
+chromadb
+python-dotenv
+python-frontmatter<1.2.0
+PyYAML
+fastapi
+uvicorn[standard]
+jinja2
