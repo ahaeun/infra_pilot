@@ -1,23 +1,21 @@
-from pathlib import Path
-
-from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from app.qa import answer_question
 
 app = FastAPI(title="Infra Pilot")
-templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class AskRequest(BaseModel):
     question: str
-
-
-@app.get("/", response_class=HTMLResponse)
-def chat_page(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
 
 
 @app.post("/api/ask")

@@ -6,4 +6,3 @@ python-frontmatter<1.2.0
 PyYAML
 fastapi
 uvicorn[standard]
-jinja2
