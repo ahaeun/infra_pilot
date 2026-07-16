@@ -10,7 +10,7 @@ from app.ingest import run_ingest
 def _slugify(name):
     return re.sub(r"\s+", "-", name.strip())
 
- 
+
 def register_doc(name: str, doc_type: str, environment: str, purpose: str, body_markdown: str) -> str:
     """서버 또는 서비스에 대한 설명 문서를 docs/에 새로 작성하고 바로 색인합니다.
     사용자가 채팅으로 서버/서비스에 대한 설명(용도, 배포 방법, 트러블슈팅 등 정적인 정보)을 알려주면 이 도구로 문서를 만드세요.
